@@ -51,6 +51,7 @@ session_01_html_css/
 - Không dùng dấu chấm ở cuối
 ```
 
+
 ### Các loại commit TYPE
 
 | TYPE | Ý nghĩa | Khi nào dùng |
