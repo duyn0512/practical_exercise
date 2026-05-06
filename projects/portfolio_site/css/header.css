@@ -57,6 +57,10 @@
     width: 100%;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 .hamburger-label {
     display: none;
     flex-direction: column;
