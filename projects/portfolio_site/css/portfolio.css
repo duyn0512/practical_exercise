@@ -1,0 +1,180 @@
+:root {
+    --color-primary: #6366f1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #ffffff;
+    color: #0f172a;
+}
+
+.portfolio-section {
+    padding: 60px 20px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.portfolio-section h2 {
+    margin-bottom: 30px;
+    color: #0f172a;
+    font-size: 36px;
+    font-weight: 800;
+}
+
+.filter-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.5rem 1.8rem;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--color-primary);
+    color: white;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio-item a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.portfolio-item img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.06);
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.9) 0%,
+        rgba(15, 23, 42, 0.4) 60%,
+        transparent 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-overlay h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    transform: translateY(12px);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-overlay p {
+    font-size: 0.875rem;
+    opacity: 0.85;
+    transform: translateY(12px);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-overlay h3,
+.portfolio-item:hover .portfolio-overlay p {
+    transform: translateY(0);
+}
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2000;
+}
+
+.lightbox:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 90%;
+    max-height: 85%;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-size: 2.5rem;
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.lightbox-close:hover {
+    color: var(--color-primary);
+}
+
+@media (max-width: 992px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
