@@ -3,7 +3,11 @@
     --color-secondary: #8b5cf6;  
     --color-dark: #1e293b;       
     --color-light: #f8fafc;      
-    --color-text: #334155;       
+    --color-text: #334155;
+    --color-text-light: #64748b;
+
+    --border-color: #cbd5e1; 
+     
     --font-main: 'Segoe UI', sans-serif;
 }
 
